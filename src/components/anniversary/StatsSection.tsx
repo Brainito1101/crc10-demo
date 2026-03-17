@@ -4,7 +4,8 @@ import { useRef, useEffect, useState } from "react";
 import { Users, Building2, Trophy, BookOpen, Handshake, GraduationCap } from "lucide-react";
 
 interface StatItemProps {
-  icon: React.ReactNode;
+  imageSrc: string;
+  imagePosition?: string;
   value: string;
   numericValue?: number;
   suffix?: string;
@@ -40,7 +41,7 @@ const useCounter = (end: number, duration: number = 2000, isInView: boolean) => 
   return count;
 };
 
-const StatItem = ({ icon, value, numericValue, suffix = "", label, description, delay, isInView }: StatItemProps) => {
+const StatItem = ({ imageSrc, imagePosition = "object-center", value, numericValue, suffix = "", label, description, delay, isInView }: StatItemProps) => {
   const count = useCounter(numericValue || 0, 2000, isInView);
 
   return (
@@ -48,22 +49,30 @@ const StatItem = ({ icon, value, numericValue, suffix = "", label, description, 
       initial={{ opacity: 0, y: 40 }}
       animate={isInView ? { opacity: 1, y: 0 } : {}}
       transition={{ duration: 0.6, delay }}
-      className="relative group"
+      className="relative group h-full"
     >
-      <div className="bg-card rounded-2xl p-8 h-full shadow-crc-sm hover:shadow-crc-lg transition-all duration-300 border border-border/50 group-hover:-translate-y-1">
-        <div className="w-14 h-14 rounded-xl bg-crc-blue/10 flex items-center justify-center mb-6 group-hover:bg-crc-gold/20 transition-colors">
-          <div className="text-crc-blue group-hover:text-crc-gold transition-colors">{icon}</div>
+      <div className="bg-card rounded-2xl h-full shadow-crc-sm hover:shadow-crc-lg transition-all duration-300 border border-border/50 group-hover:-translate-y-1 overflow-hidden flex flex-col">
+        {/* Horizontal Snippet Image */}
+        <div className="w-full h-32 sm:h-36 overflow-hidden relative shrink-0">
+          <img
+            src={imageSrc}
+            alt={label}
+            className={`w-full h-full ${imagePosition.includes("object-contain") ? "object-contain bg-slate-50 dark:bg-slate-900" : "object-cover"} ${!imagePosition.includes("object-contain") ? imagePosition : ""} group-hover:scale-105 transition-transform duration-500`}
+          />
+          {/* Light Overlay to help abstract them or make them blend well */}
+          <div className="absolute inset-0 bg-crc-blue/10 mix-blend-multiply group-hover:bg-transparent transition-colors duration-500" />
         </div>
-        <div className="mb-3">
-          <span className="text-4xl md:text-5xl font-bold text-foreground stat-counter">
-            {numericValue ? count : value}
-          </span>
-          <span className="text-4xl md:text-5xl font-bold text-crc-gold">{suffix}</span>
-        </div>
-        <h3 className="text-lg font-semibold text-foreground mb-2">{label}</h3>
-        <p className="text-sm text-muted-foreground leading-relaxed">{description}</p>
-        <div className="absolute top-0 right-0 w-20 h-20 overflow-hidden rounded-tr-2xl">
-          <div className="absolute top-0 right-0 w-32 h-32 bg-gradient-to-br from-crc-gold/10 to-transparent -translate-y-16 translate-x-16 rotate-45" />
+
+        {/* Content Section */}
+        <div className="p-6 md:p-8 flex-1 flex flex-col relative">
+          <div className="mb-3">
+            <span className="text-4xl md:text-5xl font-bold text-foreground stat-counter">
+              {numericValue ? count : value}
+            </span>
+            <span className="text-4xl md:text-5xl font-bold text-crc-gold">{suffix}</span>
+          </div>
+          <h3 className="text-lg font-semibold text-foreground mb-2">{label}</h3>
+          <p className="text-sm text-muted-foreground leading-relaxed flex-1">{description}</p>
         </div>
       </div>
     </motion.div>
@@ -72,37 +81,39 @@ const StatItem = ({ icon, value, numericValue, suffix = "", label, description, 
 
 const stats = [
   {
-    icon: <Users className="w-7 h-7" />,
+    imageSrc: "/images/image-5.jpg",
     value: "300+", numericValue: 300, suffix: "+",
     label: "Clients",
     description: "Served public, private, nonprofit and academic leaders with strategies and implementation support.",
   },
   {
-    icon: <Building2 className="w-7 h-7" />,
+    imageSrc: "/images/image-7.jpg",
     value: "20+", numericValue: 20, suffix: "+",
     label: "Resilience Hubs",
     description: "Co-designed with community-based organizations nationwide, creating community anchors.",
   },
   {
-    icon: <Trophy className="w-7 h-7" />,
+    imageSrc: "/images/leadership-25.jpg",
+    imagePosition: "object-contain",
     value: "25+", numericValue: 25, suffix: "+",
     label: "Years of Leadership",
     description: "Experience by our founder, Joyce Coffee, in leading resilience strategy across every major sector.",
   },
   {
-    icon: <Handshake className="w-7 h-7" />,
+    imageSrc: "/images/image-4.jpg",
+    imagePosition: "object-top",
     value: "20+", numericValue: 20, suffix: "+",
     label: "Board Leadership",
     description: "Appointed to international and national nonprofit boards and initiatives focused on resilience and social equity.",
   },
   {
-    icon: <BookOpen className="w-7 h-7" />,
+    imageSrc: "/images/image-1.png",
     value: "24+", numericValue: 24, suffix: "+",
     label: "Publications & Tools",
     description: "Authored resilience-related reports, including landmark guidance for philanthropy, government, and practitioners.",
   },
   {
-    icon: <GraduationCap className="w-7 h-7" />,
+    imageSrc: "/images/image-3.png",
     value: "25+", numericValue: 25, suffix: "+",
     label: "Partner Organizations",
     description: "Created partnerships with NGOs and local and small firms to best serve communities.",

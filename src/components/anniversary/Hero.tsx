@@ -1,7 +1,7 @@
 import { motion } from "framer-motion";
 import { ChevronDown } from "lucide-react";
 import { Button } from "@/components/ui/button";
-import heroImage from "@/assets/hero-climate-resilience.jpg";
+import heroImage from "@/assets/hero-bg.png";
 import crcLogo from "@/assets/crc-anniversary-logo.png";
 import galleryImg1 from "@/assets/harvard-panel.jpg";
 import galleryImg3 from "@/assets/bellagio-group.jpg";
@@ -62,11 +62,9 @@ const Hero = () => {
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 0.4 }}
-          className="text-lg md:text-xl lg:text-2xl text-primary-foreground/90 max-w-4xl mx-auto mb-10 font-light leading-relaxed"
+          className="text-md md:text-lg lg:text-xl text-primary-foreground/90 max-w-4xl mx-auto mb-10 font-light leading-relaxed"
         >
-          Since 2016, CRC has trailblazed climate adaptation solutions that empower communities,
-          governments, and organisations to transform climate risk into resilience. Throughout 2026,
-          we celebrate ten years of impact and look ahead to the next chapter.
+          For a decade, CRC has partnered with communities, governments, and organizations to build the skills, strategies, and systems needed to turn climate threats into lasting resilience. Throughout 2026, we celebrate ten years of impact and look ahead to the next chapter.
         </motion.p>
 
         {/* Featured Photo Gallery */}
@@ -74,7 +72,7 @@ const Hero = () => {
           initial={{ opacity: 0, y: 40 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 0.8 }}
-          className="mt-16 grid grid-cols-2 lg:grid-cols-4 gap-4 md:gap-6 max-w-5xl mx-auto"
+          className="mt-16 grid grid-cols-2 lg:grid-cols-4 gap-6 md:gap-8 max-w-[90rem] mx-auto px-4"
         >
           {heroGallery.map((item, index) => (
             <div

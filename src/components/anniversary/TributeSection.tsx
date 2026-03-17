@@ -1,7 +1,8 @@
 import { motion } from "framer-motion";
 import { useInView } from "framer-motion";
 import { useRef } from "react";
-import partnersImage from "@/assets/partners-image.png";
+
+import partnersLatest from "@/assets/partners-image-latest.png";
 
 const TributeSection = () => {
   const ref = useRef(null);
@@ -49,9 +50,9 @@ const TributeSection = () => {
 
             {/* Joyce & Robert */}
             <div className="flex flex-col items-center justify-center gap-6 pt-8 border-t border-border/50">
-              <div className="w-64 h-64 md:w-72 md:h-72 rounded-full overflow-hidden border-4 border-crc-gold/30 flex-shrink-0">
+              <div className="w-[340px] h-[340px] md:w-[420px] md:h-[420px] rounded-full overflow-hidden flex-shrink-0">
                 <img
-                  src={partnersImage}
+                  src={partnersLatest}
                   alt="Joyce Coffee & Robert Macnee"
                   className="w-full h-full object-cover object-top"
                 />

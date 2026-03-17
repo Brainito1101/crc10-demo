@@ -52,13 +52,11 @@ const ResourceCard = ({ icon, title, description, links, index, isInView }: Reso
 
 const resources = [
   {
-    icon: <BookOpen className="w-6 h-6" />,
-    title: "The Resilience Advantage: A Small Business Guide",
-    description: "The Resilience Advantage: A Small Business Guide to Preparing for Floods, Heatwaves, Wildfires, and Other Climate Disasters.",
+    icon: <Wrench className="w-6 h-6" />,
+    title: "EPA Equitable Resilience Builder (ERB)",
+    description: "Co-developed tool using human-centered design that engages community members in resilience planning to generate solutions that advance equity.",
     links: [
-      { label: "Order on Amazon", url: "https://amazon.com/dp/B0FNBVSL8W", type: "primary" as const },
-      { label: "Free Chapter 1 Excerpt", url: "https://www.climateresilienceconsulting.com/s/The-Resilience-Advantage-Chapter-1-Excerpt.pdf", type: "secondary" as const },
-      { label: "Learn More", url: "https://www.climateresilienceconsulting.com/small-business-resilience-advantage", type: "secondary" as const },
+      { label: "Learn More About ERB", url: "https://www.epa.gov/emergency-response-research/equitable-resilience-builder-erb", type: "primary" as const },
     ],
   },
   {
@@ -72,8 +70,8 @@ const resources = [
   },
   {
     icon: <FileText className="w-6 h-6" />,
-    title: "The Tasks of Now: Toward a New Era in Climate Resilience Building",
-    description: "Updated framework at the request of the Packard Foundation guiding philanthropic investment in climate resilience.",
+    title: "Philanthropic Resilience Leadership",
+    description: "\"Toward a New Era in Climate Resilience Building\" guiding investment in climate resilience.",
     links: [
       { label: "Explore the Report", url: "https://www.climateresilienceconsulting.com/climate-adaptation-field-status", type: "primary" as const },
     ],
@@ -87,11 +85,13 @@ const resources = [
     ],
   },
   {
-    icon: <Wrench className="w-6 h-6" />,
-    title: "EPA Equitable Resilience Builder (ERB)",
-    description: "Co-developed tool using human-centered design that engages community members in resilience planning to generate solutions that advance equity.",
+    icon: <BookOpen className="w-6 h-6" />,
+    title: "The Resilience Advantage: A Small Business Guide",
+    description: "The Resilience Advantage: A Small Business Guide to Preparing for Floods, Heatwaves, Wildfires, and Other Climate Disasters.",
     links: [
-      { label: "Learn More About ERB", url: "https://www.epa.gov/emergency-response-research/equitable-resilience-builder-erb", type: "primary" as const },
+      { label: "Order Here", url: "https://amazon.com/dp/B0FNBVSL8W", type: "primary" as const },
+      { label: "Free Chapter 1 Excerpt", url: "https://www.climateresilienceconsulting.com/s/The-Resilience-Advantage-Chapter-1-Excerpt.pdf", type: "secondary" as const },
+      { label: "Learn More", url: "https://www.climateresilienceconsulting.com/small-business-resilience-advantage", type: "secondary" as const },
     ],
   },
   {

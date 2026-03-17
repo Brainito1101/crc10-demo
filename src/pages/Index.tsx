@@ -18,14 +18,14 @@ const Index = () => {
         {/* Hero Section */}
         <Hero />
 
-        {/* Timeline */}
-        <section id="timeline">
-          <Timeline />
-        </section>
-
         {/* Stats Section */}
         <section id="impact">
           <StatsSection />
+        </section>
+
+        {/* Timeline */}
+        <section id="timeline">
+          <Timeline />
         </section>
 
         {/* Carousel Section */}
